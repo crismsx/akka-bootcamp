@@ -1,5 +1,6 @@
 ﻿using System;
 using Akka.Actor;
+using System.Threading;
 
 namespace WinTail
 {
@@ -21,6 +22,14 @@ namespace WinTail
                 return;
             }
 
+            PrintMessageInfo(msg);
+
+        }
+
+        private static void PrintMessageInfo(string msg)
+        {
+            var pmsg = string.Format("Writer tid:{0}, msg: {1}", Thread.CurrentThread.ManagedThreadId, msg);
+            Console.WriteLine(pmsg);
             // if message has even # characters, display in red; else, green
             var even = msg.Length % 2 == 0;
             var color = even ? ConsoleColor.Red : ConsoleColor.Green;
@@ -28,7 +37,6 @@ namespace WinTail
             Console.ForegroundColor = color;
             Console.WriteLine(alert);
             Console.ResetColor();
-
         }
     }
 }

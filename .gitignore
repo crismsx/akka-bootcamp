@@ -135,6 +135,7 @@ publish/
 *.nupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
+packages/
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
 # If using the old MSBuild-Integrated Package Restore, uncomment this:
@@ -182,3 +183,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+src/Unit-1/DoThis/.nuget/NuGet.Config
+src/Unit-1/DoThis/.nuget/NuGet.exe
+src/Unit-1/DoThis/.nuget/NuGet.targets
